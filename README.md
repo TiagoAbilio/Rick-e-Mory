@@ -1,17 +1,43 @@
-# projeto
-
-A new Flutter project.
-
-## Getting Started
-
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
-
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
 Uma aplicação que faz integração utilizando o Graphql, onde possivel  buscar os personagens tanto pelo nome quanto pelo status
+
+Observação.: Devido a utilização do plugin url launcher para a abertura de links utilizando o navegador, tal poderá a vim apresentar erro nativo no plugin,
+caso venha a se fazer teste emulando no navegador basta retirar o plugin url_launcher no pubspec.yaml, e retirar a funcao async apresentada no metodo showInforPerson na class Persons tal funcao apresenta-se no 6ª Align com essa condificação.
+"
+6ª -> Align(
+                alignment: const Alignment(0, 1),
+                child: SizedBox(
+                  height: 130,
+                  child: ListView.builder(
+                    scrollDirection: Axis.horizontal,
+                    itemCount: dataPerons[index].episode.length,
+                    itemBuilder: (context, indexinterno) {
+                      return GestureDetector(
+                        onTap: () async {
+                          if (await canLaunch(
+                              dataPerons[index].episode[indexinterno])) {
+                            await launch(
+                                dataPerons[index].episode[indexinterno],
+                                forceWebView: false,
+                                forceSafariVC: false);
+                          }
+                        },
+"
+
+RETIRA
+
+"
+async {
+                          if (await canLaunch(
+                              dataPerons[index].episode[indexinterno])) {
+                            await launch(
+                                dataPerons[index].episode[indexinterno],
+                                forceWebView: false,
+                                forceSafariVC: false);
+                          }
+                        },
+                        
+Pois tal e responsavel pelo envio de links e abertura do navegador                        
+"
+
+caso o codigo seja compilado no propio aparelho ou no emulador android nao a necessidade
+de alterações
